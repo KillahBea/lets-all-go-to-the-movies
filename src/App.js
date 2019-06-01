@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+import NowShowing from './Pages/NowShowing.js'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return (
+      <>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={NowShowing} />
+          </Switch>
+        </Router>
+      </>
+    )
   }
 }
 
