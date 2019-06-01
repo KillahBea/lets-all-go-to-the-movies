@@ -32,6 +32,7 @@ class Movies extends Component {
       <>
         <h1>{this.state.movie.title}</h1>
         <img src={`https://image.tmdb.org/t/p/w500/${this.state.movie.poster_path}`} />
+        <p>{this.state.movie.overview}</p>
         <ul>
           {this.state.cast.map(castMember => {
             return (
