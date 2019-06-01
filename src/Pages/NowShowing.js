@@ -37,7 +37,9 @@ class NowShowing extends Component {
             return (
               <section>
                 <MovieListItem key={index} movies={movies.title} />
-                <MoviePoster poster={movies.poster_path} />
+                <Link to={`/movie/${movies.id}`}>
+                  <MoviePoster poster={movies.poster_path} />
+                </Link>
               </section>
             )
           })}
