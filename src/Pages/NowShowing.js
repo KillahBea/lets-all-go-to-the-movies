@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar.js'
 import Footer from '../components/Footer.js'
 import MovieListItem from '../components/MovieListItem.js'
 import MoviePoster from '../components/MoviePoster.js'
+import HeroImage from '../components/HeroImage.js'
 
 class NowShowing extends Component {
   state = {
@@ -29,7 +30,7 @@ class NowShowing extends Component {
       <>
         <NavBar />
         <div className="hero-image">
-          <span className="hero-graphic" />
+          {this.props.movies[Math.floor(Math.random() * movies.poster.length)]}
         </div>
         <div className="bullshirt">
           {this.state.movies.map((movies, index) => {
