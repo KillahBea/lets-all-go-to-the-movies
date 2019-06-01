@@ -4,6 +4,7 @@ import hero from '../images/Hellboy-2019.jpg'
 import NavBar from '../components/NavBar.js'
 import Footer from '../components/Footer.js'
 import MovieListItem from '../components/MovieListItem.js'
+import MoviePoster from '../components/MoviePoster.js'
 
 class NowShowing extends Component {
   state = {
@@ -27,12 +28,17 @@ class NowShowing extends Component {
     return (
       <>
         <NavBar />
-        {/* <div className="hero-image">
+        <div className="hero-image">
           <span className="hero-graphic" />
-        </div> */}
-        <div classname="bullshirt">
+        </div>
+        <div className="bullshirt">
           {this.state.movies.map((movies, index) => {
-            return <MovieListItem key={index} movies={movies.title} />
+            return (
+              <section>
+                <MovieListItem key={index} movies={movies.title} />
+                <MoviePoster poster={movies.poster_path} />
+              </section>
+            )
           })}
         </div>
         <Footer />
