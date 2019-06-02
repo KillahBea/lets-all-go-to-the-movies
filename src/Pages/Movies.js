@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ScrollToTop from '../components/ScrollToTop'
 
 class Movies extends Component {
   state = {
@@ -22,6 +23,7 @@ class Movies extends Component {
     )
       .then(resp => resp.json())
       .then(results => {
+        console.log(results)
         this.setState({
           cast: results.cast
         })
@@ -30,6 +32,7 @@ class Movies extends Component {
   render() {
     return (
       <>
+        <ScrollToTop />
         <h1>{this.state.movie.title}</h1>
         <img src={`https://image.tmdb.org/t/p/w500/${this.state.movie.poster_path}`} />
         <p>{this.state.movie.overview}</p>
@@ -37,8 +40,8 @@ class Movies extends Component {
           {this.state.cast.map(castMember => {
             return (
               <li>
-                <h2>{castMember.name}</h2>
-                <h3>{castMember.character}</h3>
+                <p>{castMember.name}</p>
+                <p>{castMember.character}</p>
               </li>
             )
           })}
