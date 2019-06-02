@@ -46,13 +46,13 @@ class NowShowing extends Component {
       <>
         <NavBar />
         <div className="hero-image">
-          <Link to={`/movie/${this.state.posters.id[this.state.posters.randomNumber]}`}>
+          {/* <Link to={`/movie/${this.state.posters.id[this.state.posters.randomNumber]}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${
                 this.state.posters.images[this.state.posters.randomNumber]
               }`}
             />
-          </Link>
+          </Link> */}
         </div>
         <div className="bullshirt">
           {this.state.movies.map((movies, index) => {
