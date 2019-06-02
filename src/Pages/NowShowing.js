@@ -12,8 +12,11 @@ import { random } from 'node-forge'
 class NowShowing extends Component {
   state = {
     movies: [],
-    posters: [],
-    randomNumber: null
+    posters: {
+      id: [],
+      images: [],
+      randomNumber: 0
+    }
   }
 
   componentDidMount = () => {
@@ -25,10 +28,16 @@ class NowShowing extends Component {
         let posterArray = results.results.map(item => {
           return item.poster_path
         })
+        let ids = results.results.map(item => {
+          return item.id
+        })
         this.setState({
           movies: results.results,
-          posters: posterArray,
-          randomNumber: Math.floor(Math.random() * posterArray.length)
+          posters: {
+            images: posterArray,
+            id: ids,
+            randomNumber: Math.floor(Math.random() * posterArray.length)
+          }
         })
       })
   }
@@ -37,14 +46,18 @@ class NowShowing extends Component {
       <>
         <NavBar />
         <div className="hero-image">
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${this.state.posters[this.state.randomNumber]}`}
-          />
+          <Link to={`/movie/${this.state.posters.id[this.state.posters.randomNumber]}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${
+                this.state.posters.images[this.state.posters.randomNumber]
+              }`}
+            />
+          </Link>
         </div>
         <div className="bullshirt">
           {this.state.movies.map((movies, index) => {
             return (
-              <section>
+              <section key={index}>
                 <MovieListItem key={index} movies={movies.title} />
                 <Link to={`/movie/${movies.id}`}>
                   <MoviePoster poster={movies.poster_path} />
