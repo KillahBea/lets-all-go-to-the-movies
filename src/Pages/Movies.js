@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ScrollToTop from '../components/ScrollToTop'
+import { Link } from 'react-router-dom'
 
 class Movies extends Component {
   state = {
@@ -31,6 +32,9 @@ class Movies extends Component {
     return (
       <>
         <ScrollToTop />
+        <Link to="/">
+          <p>Home</p>
+        </Link>
         <h1 className="">{this.state.movie.title}</h1>
         <img src={`https://image.tmdb.org/t/p/w500/${this.state.movie.poster_path}`} />
         <p>{this.state.movie.overview}</p>
