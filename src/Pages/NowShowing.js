@@ -6,10 +6,14 @@ import Footer from '../components/Footer.js'
 import MovieListItem from '../components/MovieListItem.js'
 import MoviePoster from '../components/MoviePoster.js'
 import HeroImage from '../components/HeroImage.js'
+import { arrayExpression } from '@babel/types'
+import { random } from 'node-forge'
 
 class NowShowing extends Component {
   state = {
-    movies: []
+    movies: [],
+    posters: [],
+    randomNumber: null
   }
 
   componentDidMount = () => {
@@ -18,19 +22,24 @@ class NowShowing extends Component {
     )
       .then(resp => resp.json())
       .then(results => {
-        console.log(results)
+        let posterArray = results.results.map(item => {
+          return item.poster_path
+        })
         this.setState({
-          movies: results.results
+          movies: results.results,
+          posters: posterArray,
+          randomNumber: Math.floor(Math.random() * posterArray.length)
         })
       })
   }
-
   render() {
     return (
       <>
         <NavBar />
         <div className="hero-image">
-          {this.props.movies[Math.floor(Math.random() * movies.poster.length)]}
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${this.state.posters[this.state.randomNumber]}`}
+          />
         </div>
         <div className="bullshirt">
           {this.state.movies.map((movies, index) => {

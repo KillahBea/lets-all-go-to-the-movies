@@ -13,7 +13,6 @@ class Movies extends Component {
     )
       .then(resp => resp.json())
       .then(results => {
-        console.log(results)
         this.setState({
           movie: results
         })
@@ -23,7 +22,6 @@ class Movies extends Component {
     )
       .then(resp => resp.json())
       .then(results => {
-        console.log(results)
         this.setState({
           cast: results.cast
         })
@@ -33,13 +31,13 @@ class Movies extends Component {
     return (
       <>
         <ScrollToTop />
-        <h1>{this.state.movie.title}</h1>
+        <h1 className="">{this.state.movie.title}</h1>
         <img src={`https://image.tmdb.org/t/p/w500/${this.state.movie.poster_path}`} />
         <p>{this.state.movie.overview}</p>
         <ul>
           {this.state.cast.map(castMember => {
             return (
-              <li>
+              <li className="cast">
                 <p>{castMember.name}</p>
                 <p>{castMember.character}</p>
               </li>
