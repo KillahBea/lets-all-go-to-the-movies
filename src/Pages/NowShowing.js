@@ -29,17 +29,13 @@ class NowShowing extends Component {
     return (
       <>
         <NavBar />
-        <div className="hero-image">
-          {this.props.movies[Math.floor(Math.random() * movies.poster.length)]}
-        </div>
+        <HeroImage />
         <div className="bullshirt">
           {this.state.movies.map((movies, index) => {
             return (
               <section>
                 <MovieListItem key={index} movies={movies.title} />
-                <Link to={`/movie/${movies.id}`}>
-                  <MoviePoster poster={movies.poster_path} />
-                </Link>
+                <MoviePoster poster={movies.poster_path} />
               </section>
             )
           })}
