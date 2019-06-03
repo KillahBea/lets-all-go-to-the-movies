@@ -32,8 +32,17 @@ body {
   text-align: center;
 }
 
-footer {
+/* footer {
   display: flex;
   justify-content: center;
   text-align: center;
+} */
+
+.bullshirt {
+  display: flex;
+}
+
+.bullshirt-posters {
+  display: flex;
+  flex-wrap: wrap;
 }

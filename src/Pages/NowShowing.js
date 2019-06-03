@@ -58,19 +58,21 @@ class NowShowing extends Component {
             />
           </Link>
         </div>
-        <div className="bullshirt">
-          {this.state.movies.map((movies, index) => {
-            return (
-              <section key={index}>
-                <MovieListItem key={index} movies={movies.title} />
-                <Link to={`/movie/${movies.id}`}>
-                  <MoviePoster poster={movies.poster_path} />
-                </Link>
-              </section>
-            )
-          })}
-        </div>
-        <Footer />
+        <main className="bullshirt-posters">
+          <div className="bullshirt">
+            {this.state.movies.map((movies, index) => {
+              return (
+                <section key={index}>
+                  <MovieListItem key={index} movies={movies.title} />
+                  <Link to={`/movie/${movies.id}`}>
+                    <MoviePoster poster={movies.poster_path} />
+                  </Link>
+                </section>
+              )
+            })}
+          </div>
+        </main>
+        {/* <Footer /> */}
       </>
     )
   }
