@@ -24,6 +24,10 @@ body {
   justify-content: center;
   background-color: rgb(26, 27, 27);
 }
+/* .poster-image {
+  height: 6rem;
+  width: 3rem; */
+/* } */
 
 .nav-bar p {
   display: flex;
@@ -34,6 +38,6 @@ body {
 
 footer {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
 }
