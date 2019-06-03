@@ -24,6 +24,10 @@ body {
   justify-content: center;
   background-color: rgb(26, 27, 27);
 }
+/* .poster-image {
+  height: 6rem;
+  width: 3rem; */
+/* } */
 
 .nav-bar p {
   display: flex;
@@ -34,6 +38,7 @@ body {
 
 /* footer {
   display: flex;
+<<<<<<< HEAD
   justify-content: center;
   text-align: center;
 } */
@@ -45,4 +50,8 @@ body {
 .bullshirt-posters {
   display: flex;
   flex-wrap: wrap;
+=======
+  justify-content: flex-end;
+  align-items: center;
+>>>>>>> 53c8bbdc60271a2b18751291071f75afa2b8da67
 }
